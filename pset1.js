@@ -58,6 +58,18 @@ const getInRange = (s, e) => {
             whether or not a number is even
 */
 
+const isEven = (n) => {
+        if (n === 2) {
+                return true;
+        }
+        if (n < 2 ){
+                return false
+        }
+        return isEven(n - 2);
+}
+
+console.log( isEven(9) );
+
 /*  4
     @function pow
     @param b {number}
