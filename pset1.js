@@ -31,6 +31,15 @@
         - remember to account for what happens if s > e!
 */
 
+const getInRange = (s, e) => {
+        if (s >= e){
+            return [s];
+        }
+        return [s].concat(getInRange(s + 1, e));
+    }
+
+    console.log(getInRange(2,5));
+    
 /*  3
     @function isEven
     @param n {number}
