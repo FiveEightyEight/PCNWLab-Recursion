@@ -17,6 +17,15 @@
             or, 5! = 5*4*3*2*1
 */
 
+const factorial = (n) => {
+        if (n < 2) {
+                return n;
+        }
+        return factorial(n-1) * n;
+}
+
+console.log(factorial(5));
+
 /*  2
     @function getInRange
     @param s {number}
