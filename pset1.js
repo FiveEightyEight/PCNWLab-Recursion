@@ -59,10 +59,13 @@ const getInRange = (s, e) => {
 */
 
 const isEven = (n) => {
-        if (n === 2) {
+        if(n < 0){
+                return isEven(n * -1);
+        }
+        if (n === 0) {
                 return true;
         }
-        if (n < 2 ){
+        if (n === 1) {
                 return false
         }
         return isEven(n - 2);
@@ -80,6 +83,15 @@ console.log( isEven(9) );
             the value of b^n
 */
 
+const pow = (b, n) => {
+        if (n === 1){
+                return b;
+        }
+        return pow(b, n - 1) * b;
+}
+
+console.log(pow(8 , 8), `should equal ${8**8}`)
+
 /*  5
     @function multiply
     @param a {number}
@@ -89,6 +101,7 @@ console.log( isEven(9) );
         - determine without using multiplication operator the product
             of a and b
 */
+
 
 /*  6
     @function reverse
