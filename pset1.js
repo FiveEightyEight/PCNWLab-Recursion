@@ -139,6 +139,10 @@ console.log(reverse('string'))
         - recursively determine if a string is a palindrome
 */
 
+const isPalindrome = s =>  s === reverse(s);
+
+console.log(isPalindrome('racecar'));
+
 
 /*  8
     @function map
