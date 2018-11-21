@@ -126,8 +126,10 @@ const reverse = (s) => {
         if(s === ''){
                 return s;
         }
-        return s[s.length - 1] + reverse(s.slice(0))
+        return s.slice(-1) + reverse(s.slice(0 , -1))
 }
+
+console.log(reverse('string'))
 
 /*  7
     @function isPalindrome
