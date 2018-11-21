@@ -48,6 +48,7 @@ const getInRange = (s, e) => {
     }
 
     console.log(getInRange(2,5));
+    console.log(getInRange(-10, -5));
     
 /*  3
     @function isEven
@@ -102,6 +103,15 @@ console.log(pow(8 , 8), `should equal ${8**8}`)
             of a and b
 */
 
+const multiply = (a, b) => {
+        if (b === 1){
+                return a;
+        }
+        return pow(a, b - 1) + a;
+}
+
+console.log(multiply(2 , 3))
+
 
 /*  6
     @function reverse
@@ -110,6 +120,14 @@ console.log(pow(8 , 8), `should equal ${8**8}`)
     @description:
         - recursively reverse a string
 */
+
+
+const reverse = (s) => {
+        if(s === ''){
+                return s;
+        }
+        return s[s.length - 1] + reverse(s.slice(0))
+}
 
 /*  7
     @function isPalindrome
