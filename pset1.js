@@ -139,9 +139,20 @@ console.log(reverse('string'))
         - recursively determine if a string is a palindrome
 */
 
-const isPalindrome = s =>  s === reverse(s);
+const isPalindrome = (s) => {
+        if (s.length <= 1){
+                return true;
+        }
+        if (s[0] !== s[s.length - 1]){
+                return false;
+        }
+        return isPalindrome( s.slice( 1, -1 ) );
+}
+
+// const isPalindrome = s =>  s === reverse(s);
 
 console.log(isPalindrome('racecar'));
+
 
 
 /*  8
@@ -152,7 +163,12 @@ console.log(isPalindrome('racecar'));
     @description:
         - recursively implement map
 */
-
+const bcb = (element, i, arr) => {
+        
+}
+const map = (arr, cb) => {
+        
+}
 
 /*  9
     @function filter
