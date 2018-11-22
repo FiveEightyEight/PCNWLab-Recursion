@@ -41,7 +41,19 @@ console.log(powerOfTwo( (2 **  Math.floor(Math.random()*13))  )); // true
 // modulo(5,2) // 1
 // modulo(17,5) // 2
 // modulo(22,6) // 4
-const modulo = (x, y) => {};
+console.log(`~*~*~*~*~*~*~*~ modulo ~*~*~*~*~*~*~*~*~*~*~`)
+const modulo = (x, y) => {
+    if (x < y) {
+        return x;
+    }
+    return modulo(x - y, y);
+};
+
+console.log(modulo(5,2)) // 1
+console.log( modulo(17,5)) // 2
+console.log( modulo(22,6)) // 4
+
+
 
 // Find the greatest common divisor (gcd) of two positive numbers. The GCD of two
 // integers is the greatest integer that divides both x and y with no remainder.
