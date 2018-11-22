@@ -2,8 +2,8 @@
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 const sumBelow = n => {
-    if (n === 0) {
-        return n
+    if (n ===0) {
+        return n;
     }
     return (n-1) + sumBelow(n-1);
 };
@@ -15,7 +15,26 @@ console.log(sumBelow(7)); // 21
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
-const powerOfTwo = n => {};
+const powerOfTwo = n => {
+    if (n === 1) {
+        return true;
+    }
+    if (n === 2) {
+        return true;
+    }
+    if(n < 1) {
+        return false;
+    }
+
+    return powerOfTwo(n / 2)
+};
+
+console.log(`power of 2: ~*~*~*~*~*~*~*~*~*~*~*~`)
+console.log(powerOfTwo(1)); // true
+console.log(powerOfTwo(16)); // true
+console.log(powerOfTwo(10)); // false
+
+console.log(powerOfTwo( (2 **  Math.floor(Math.random()*13))  )); // true
 
 // Write a function that returns the remainder of x divided by y without using the
 // modulo (%) operator.
