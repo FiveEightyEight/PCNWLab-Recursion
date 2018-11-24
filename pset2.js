@@ -76,13 +76,32 @@ console.log(gcd(4,36)); // 4
 // both are identical.
 // compareStr('house', 'houses') // false
 // compareStr('tomato', 'tomato') // true
-const compareStr = (str1, str2) => {};
+console.log(`~*~*~*~*~*~*~*~ compareStr ~*~*~*~*~*~*~*~*~*~*~`)
+const compareStr = (str1, str2) => {
+    if(str1 === "" && str2 === ""){
+        return true;
+    }
+    if (str1[0] !== str2[0]) {
+        return false
+    }
+    return compareStr(str1.slice(1) , str2.slice(1));
+};
 
+console.log(compareStr('house', 'houses')) // false
+console.log(compareStr('tomato', 'tomato')) // true
 
 // Given an array of words, return a new array containing each word capitalized.
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
-const capitalizeWords = array => {};
+console.log(`~*~*~*~*~*~*~*~ capitalizeWords ~*~*~*~*~*~*~*~*~*~*~`)
+const capitalizeWords = array => {
+    if(array.length === 0){
+        return array;
+    }
+    return [array[0].toUpperCase()].concat(capitalizeWords(array.slice(1)));
+};
+
+console.log( capitalizeWords(['i', 'am', 'learning', 'recursion']));
 
 
 // Alternate the numbers in an array between positive and negative regardless of
