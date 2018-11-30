@@ -21,7 +21,7 @@ const factorial = (n) => {
         if (n < 2) {
                 return n;
         }
-        return factorial(n-1) * n;
+        return factorial(n - 1) * n;
 }
 
 console.log(factorial(5));
@@ -41,15 +41,15 @@ console.log(factorial(5));
 */
 
 const getInRange = (s, e) => {
-        if (s >= e){
-            return [s];
+        if (s >= e) {
+                return [s];
         }
         return [s].concat(getInRange(s + 1, e));
-    }
+}
 
-    console.log(getInRange(2,5));
-    console.log(getInRange(-10, -5));
-    
+console.log(getInRange(2, 5));
+console.log(getInRange(-10, -5));
+
 /*  3
     @function isEven
     @param n {number}
@@ -60,7 +60,7 @@ const getInRange = (s, e) => {
 */
 
 const isEven = (n) => {
-        if(n < 0){
+        if (n < 0) {
                 return isEven(n * -1);
         }
         if (n === 0) {
@@ -72,7 +72,7 @@ const isEven = (n) => {
         return isEven(n - 2);
 }
 
-console.log( isEven(9) );
+console.log(isEven(9));
 
 /*  4
     @function pow
@@ -85,13 +85,13 @@ console.log( isEven(9) );
 */
 
 const pow = (b, n) => {
-        if (n === 1){
+        if (n === 1) {
                 return b;
         }
         return pow(b, n - 1) * b;
 }
 
-console.log(pow(8 , 8), `should equal ${8**8}`)
+console.log(pow(8, 8), `should equal ${8**8}`)
 
 /*  5
     @function multiply
@@ -104,13 +104,13 @@ console.log(pow(8 , 8), `should equal ${8**8}`)
 */
 
 const multiply = (a, b) => {
-        if (b === 1){
+        if (b === 1) {
                 return a;
         }
         return pow(a, b - 1) + a;
 }
 
-console.log(multiply(2 , 3))
+console.log(multiply(2, 3))
 
 
 /*  6
@@ -123,10 +123,10 @@ console.log(multiply(2 , 3))
 
 
 const reverse = (s) => {
-        if(s === ''){
+        if (s === '') {
                 return s;
         }
-        return s.slice(-1) + reverse(s.slice(0 , -1))
+        return s.slice(-1) + reverse(s.slice(0, -1))
 }
 
 console.log(reverse('string'))
@@ -140,13 +140,13 @@ console.log(reverse('string'))
 */
 
 const isPalindrome = (s) => {
-        if (s.length <= 1){
+        if (s.length <= 1) {
                 return true;
         }
-        if (s[0] !== s[s.length - 1]){
+        if (s[0] !== s[s.length - 1]) {
                 return false;
         }
-        return isPalindrome( s.slice( 1, -1 ) );
+        return isPalindrome(s.slice(1, -1));
 }
 
 // const isPalindrome = s =>  s === reverse(s);
@@ -163,12 +163,21 @@ console.log(isPalindrome('racecar'));
     @description:
         - recursively implement map
 */
-const bcb = (element, i, arr) => {
-        
+const mapCb = (e, i, arr) => {
+        return e * 2;
 }
-const map = (arr, cb) => {
-        
+
+const myMap = (arr, cb) => {
+        if (arr.length === 0) {
+                return arr;
+        }
+
+        return [cb(arr[0])].concat(myMap(arr.slice(1), cb));
 }
+
+console.log(myMap([1, 2, 3, 4], mapCb));
+
+
 
 /*  9
     @function filter
@@ -179,6 +188,23 @@ const map = (arr, cb) => {
         - recursively implement filter
 */
 
+const filterCb = (e, i, arr) => {
+        return e > 2;
+}
+
+const myFilter = (arr, cb) => {
+        if (arr.length === 0) {
+                return arr;
+        }
+        if(cb(arr[0])) {
+                return [arr[0]].concat(myFilter(arr.slice(1), cb));
+        }
+        return myFilter(arr.slice(2), cb);
+
+
+}
+
+console.log(myFilter([1, 2, 3, 4], filterCb));
 
 /*  10
     @function reduce
@@ -189,7 +215,3 @@ const map = (arr, cb) => {
     @description:
         - recursively implement reduce
 */
-
-
-
-
